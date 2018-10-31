@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import os
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
@@ -23,7 +24,7 @@ def show_contents_list():
     
     items_by_room = {}
     for room in rooms:
-        items_by_room[room]  = mongo.db[room].find()
+        items_by_room[room] = mongo.db[room].find()
     
     return render_template("contents_list.html", items_by_room=items_by_room)
     
@@ -34,6 +35,14 @@ def show_room_detail(room):
     items = mongo.db[room].find()
     
     return render_template("room_detail.html", items=items, room=room)
+    
+
+@app.route("/room/<room>/<item_id>")
+def show_item_detail(room, item_id):
+    
+    item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
+    
+    return render_template("item_detail.html", item=item)
 
 
 
