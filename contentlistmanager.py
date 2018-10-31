@@ -9,24 +9,31 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
 
-def get_category_names():
-    categories = []
-    for category in mongo.db.collection_names():
-        if not category.startswith("system."):
-            categories.append(category)
-    return categories
+def get_room_names():
+    rooms = []
+    for room in mongo.db.collection_names():
+        if not room.startswith("system."):
+            rooms.append(room)
+    return rooms
 
 
 @app.route("/")
 def show_contents_list():
-    categories = get_category_names()
+    rooms = get_room_names()
     
-    items = {}
-    for category in categories:
-        item = mongo.db[category].find()
-        items[category] = item
+    items_by_room = {}
+    for room in rooms:
+        items_by_room[room]  = mongo.db[room].find()
     
-    return render_template("contents_list.html", categories=categories, items=items)
+    return render_template("contents_list.html", items_by_room=items_by_room)
+    
+
+@app.route("/room/<room>")
+def show_room_detail(room):
+    
+    items = mongo.db[room].find()
+    
+    return render_template("room_detail.html", items=items, room=room)
 
 
 

@@ -11,7 +11,11 @@
     
     <!-- Bootstrap 4 CSS
 -------------------- -->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" type="text/css" />    
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" type="text/css" />
+    
+    <!-- Font Awsome
+-------------------- -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
     
 </head>
 <body>
@@ -32,9 +36,15 @@
     </main>
     
     <footer>
-        <nav class="navbar fixed-bottom navbar-dark bg-primary">
-          <a class="navbar-brand" href="#">Home</a>
-        </nav>
+        <div class="dropup fixed-bottom">
+            <a class="btn btn-primary btn-lg dropdown-toggle float-right" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropup
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropupMenuButton">
+                <a class="dropdown-item text-right" href="#">Add Item</a>
+                <a class="dropdown-item text-right" href="#">Add Room</a>
+            </div>
+        </div>
     </footer>
 
     <!-- Jquery and Popper JS 

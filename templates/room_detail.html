@@ -1,0 +1,18 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+    <div class="row">
+        <div class="col mt-5">
+
+            <h1>{{ room }}</h1>
+            
+            {% for item in items %}
+                <p>{{ item.item_title }} - <a href="#" >view</a></p>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+{% endblock %}
