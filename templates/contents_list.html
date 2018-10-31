@@ -1,17 +1,37 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
 {% block content %}
 
     <div class="row">
         <div class="col mt-5">
     
+    
             <h1>Hello World</h1>
-            
-            {% for category in categories %}
-            {{ category }}
-            {% endfor %}
+    
+            <div class="accordion" id="accordionExample">
+                {% for category in categories %} 
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ category }}" aria-expanded="true" aria-controls="collapseOne">
+                                  {{ category }} 
+                                </button>
+                            </h5>
+                        </div>
+        
+                        <div id="{{ category }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                            <div class="card-body">
+                                {% for item in items[category] %}
+                                <p>{{ item.item_title }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    
     
         </div>
     </div>
-    
+
 {% endblock %}

@@ -16,10 +16,19 @@ def get_category_names():
             categories.append(category)
     return categories
 
+
 @app.route("/")
 def show_contents_list():
     categories = get_category_names()
-    return render_template("contents_list.html", categories=categories)
+    
+    items = {}
+    for category in categories:
+        item = mongo.db[category].find()
+        items[category] = item
+    
+    return render_template("contents_list.html", categories=categories, items=items)
+
+
 
 if __name__ == "__main__":
     app.run(host=os.getenv('IP', '0.0.0.0'), port=int(os.getenv('PORT', 8080)), debug=True)
