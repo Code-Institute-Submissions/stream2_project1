@@ -56,6 +56,20 @@ def add_room():
         rooms = get_room_names()
     
         return render_template("add_room.html", rooms=rooms)
+        
+
+@app.route("/add_item", methods=["GET", "POST"])
+def add_item():
+    if request.method == "POST":
+        form_values = request.form.to_dict()
+        room = form_values["room_name"]
+        mongo.db[room].insert_one(form_values)
+        
+        return redirect("/")
+    else:
+        rooms = get_room_names()
+        
+        return render_template ("add_item.html", rooms=rooms)
 
 
 if __name__ == "__main__":
