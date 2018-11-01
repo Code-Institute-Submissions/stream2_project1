@@ -10,7 +10,7 @@
             <p>{{ item.make }}</p>
             <p>{{ item.model }}</p>
             
-            <a href="#" >Edit</a></p>
+            <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >Edit</a></p>
             
         </div>
     </div>

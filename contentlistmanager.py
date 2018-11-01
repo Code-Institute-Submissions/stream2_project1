@@ -42,7 +42,7 @@ def show_item_detail(room, item_id):
     
     item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
     
-    return render_template("item_detail.html", item=item)
+    return render_template("item_detail.html", room=room, item=item)
 
 
 @app.route("/add_room", methods=["GET", "POST"])
@@ -56,6 +56,19 @@ def add_room():
         rooms = get_room_names()
     
         return render_template("add_room.html", rooms=rooms)
+        
+
+@app.route("/room/<room>/edit_room", methods=["GET", "POST"])
+def edit_room(room):
+    if request.method == "POST":
+        room_name = request.form["room_name"]
+        mongo.db[room].rename(room_name)
+        
+        return redirect(url_for("show_room_detail", room=room_name))
+    else:
+        rooms = get_room_names()
+        
+        return render_template("edit_room.html", rooms=rooms, room_room=room)
         
 
 @app.route("/add_item", methods=["GET", "POST"])
@@ -73,7 +86,7 @@ def add_item():
         
 
 @app.route("/item/<room>/<item_id>/edit_item", methods=["GET", "POST"])
-def edit_room(room, item_id):
+def edit_item(room, item_id):
     if request.method == "POST":
         form_values = request.form.to_dict()
         mongo.db[room].update({"_id": ObjectId(item_id)}, form_values)
