@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 import os
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -44,6 +44,18 @@ def show_item_detail(room, item_id):
     
     return render_template("item_detail.html", item=item)
 
+
+@app.route("/add_room", methods=["GET", "POST"])
+def add_room():
+    if request.method == "POST":
+        room_name = request.form["room_name"]
+        mongo.db.create_collection(room_name)
+        
+        return redirect("/")
+    else:
+        rooms = get_room_names()
+    
+        return render_template("add_room.html", rooms=rooms)
 
 
 if __name__ == "__main__":
