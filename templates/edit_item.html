@@ -1,0 +1,41 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+    <div class="row">
+        <div class="col col-md-6 offset-3">
+            
+            <h1>Edit Item</h1>
+            
+            <form method = "POST">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect">Select Room</label>
+                    <select class="form-control" id="exampleFormControlSelect" name="room_name">
+                      <option value="" disabled selected>Select Room</option>
+                      {% for room in rooms %}
+                          {% if room == item_room %}
+                              <option value="{{ room }}" selected>{{ room }}</option>
+                          {% else %}
+                              <option value="{{ room }}">{{ room }}</option>
+                          {% endif %}
+                      {% endfor %}
+                    </select>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Item</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="item_title" placeholder="item" value="{{ item.item_title }}">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Make</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2" name="make" placeholder="Make" value="{{ item.make }}">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput3">Model</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput3" name="model" placeholder="Model" value="{{ item.model }}">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+        </div>    
+    </div>        
+            
+{% endblock %}               

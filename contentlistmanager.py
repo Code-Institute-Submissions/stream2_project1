@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 import os
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -70,6 +70,24 @@ def add_item():
         rooms = get_room_names()
         
         return render_template ("add_item.html", rooms=rooms)
+        
+
+@app.route("/item/<room>/<item_id>/edit_item", methods=["GET", "POST"])
+def edit_room(room, item_id):
+    if request.method == "POST":
+        form_values = request.form.to_dict()
+        mongo.db[room].update({"_id": ObjectId(item_id)}, form_values)
+        
+        if form_values["room_name"] != room:
+            item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
+            mongo.db[room].remove(item)
+            mongo.db[form_values["room_name"]].insert(item)
+        
+        return redirect(url_for("show_item_detail", room=form_values["room_name"], item_id=item_id))    
+    else:
+        item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
+        rooms = get_room_names()
+        return render_template("edit_item.html", item=item, rooms=rooms, item_room=room)
 
 
 if __name__ == "__main__":
