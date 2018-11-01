@@ -10,6 +10,14 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
 
+
+@app.context_processor
+def utility_processor():
+    def spaces_to_underscores(s):
+        return s.replace(" ", "_").lower()
+    return {"spaces_to_underscores": spaces_to_underscores}
+
+# Get Room Names Function
 def get_room_names():
     rooms = []
     for room in mongo.db.collection_names():
@@ -18,6 +26,7 @@ def get_room_names():
     return rooms
 
 
+# Show Contents List App Route
 @app.route("/")
 def show_contents_list():
     rooms = get_room_names()
@@ -27,8 +36,9 @@ def show_contents_list():
         items_by_room[room] = mongo.db[room].find()
     
     return render_template("contents_list.html", items_by_room=items_by_room)
-    
 
+    
+# Show Room Detail App Route
 @app.route("/room/<room>")
 def show_room_detail(room):
     
@@ -37,6 +47,7 @@ def show_room_detail(room):
     return render_template("room_detail.html", items=items, room=room)
     
 
+# Show Item Detail App Route
 @app.route("/room/<room>/<item_id>")
 def show_item_detail(room, item_id):
     
@@ -45,6 +56,7 @@ def show_item_detail(room, item_id):
     return render_template("item_detail.html", room=room, item=item)
 
 
+# Add Room App Route
 @app.route("/add_room", methods=["GET", "POST"])
 def add_room():
     if request.method == "POST":
@@ -58,6 +70,7 @@ def add_room():
         return render_template("add_room.html", rooms=rooms)
         
 
+# Edit Room App Route
 @app.route("/room/<room>/edit_room", methods=["GET", "POST"])
 def edit_room(room):
     if request.method == "POST":
@@ -71,6 +84,7 @@ def edit_room(room):
         return render_template("edit_room.html", rooms=rooms, room_room=room)
         
 
+# Add Item App Route
 @app.route("/add_item", methods=["GET", "POST"])
 def add_item():
     if request.method == "POST":
@@ -85,6 +99,7 @@ def add_item():
         return render_template ("add_item.html", rooms=rooms)
         
 
+# Edit Item App Route
 @app.route("/item/<room>/<item_id>/edit_item", methods=["GET", "POST"])
 def edit_item(room, item_id):
     if request.method == "POST":
@@ -100,6 +115,7 @@ def edit_item(room, item_id):
     else:
         item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
         rooms = get_room_names()
+        
         return render_template("edit_item.html", item=item, rooms=rooms, item_room=room)
 
 
