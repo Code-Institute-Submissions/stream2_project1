@@ -3,21 +3,29 @@
 {% block content %}
 
     <div class="row">
-        <div class="col col-md-6 offset-3">
+        <div class="col-10 offset-1">
             
-            <h1>Add Room</h1>
-            
-            {% for room in rooms %}
-            <p>{{ room }}</p>
-            {% endfor %}
-            
-            <form method = "POST">
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Example label</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" name="room_name" placeholder="Room Name">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Add Room</h1>
                 </div>
-                <button type="submit" class="btn btn-primary">Add</button>
-            </form>
+                
+                <div class="card-body">
+                    
+                    {% for room in rooms %}
+                    <p>{{ room }}</p>
+                    {% endfor %}
+                    
+                    <form method = "POST">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Example label</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="room_name" placeholder="Room Name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </form>
+                
+                </div>
+            </div>    
             
         </div>    
     </div>        

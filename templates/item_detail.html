@@ -3,14 +3,21 @@
 {% block content %}
 
     <div class="row">
-        <div class="col col-md-6 offset-3">
+        <div class="col-10 offset-1">
            
-            <h1>{{ item.item_title }}</h1>
-           
-            <p>{{ item.make }}</p>
-            <p>{{ item.model }}</p>
+            <div class="card">
+                <div class="card-header">
+                    <h1>{{ item.item_title }}</h1>
+                </div>
+                <div class="card-body">
+                    <p class="card-title">Make</p>
+                    <p class="card-text">{{ item.make }}</p>
+                    <p class="card-title">Model</p>
+                    <p class="card-text">{{ item.model }}</p>
             
-            <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >Edit</a></p>
+                    <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >Edit</a></p>
+                </div>
+            </div>        
             
         </div>
     </div>

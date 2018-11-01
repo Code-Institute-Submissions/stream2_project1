@@ -3,37 +3,46 @@
 {% block content %}
 
     <div class="row">
-        <div class="col col-md-6 offset-3">
+        <div class="col-10 offset-1">
             
-            <h1>Edit Item</h1>
+            <div class="card">
+                <div class="card-header">
+                    <h1>Edit Item</h1>
+                </div>
+                
+                <div class="card-body">
             
-            <form method = "POST">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect">Select Room</label>
-                    <select class="form-control" id="exampleFormControlSelect" name="room_name">
-                      <option value="" disabled selected>Select Room</option>
-                      {% for room in rooms %}
-                          {% if room == item_room %}
-                              <option value="{{ room }}" selected>{{ room }}</option>
-                          {% else %}
-                              <option value="{{ room }}">{{ room }}</option>
-                          {% endif %}
-                      {% endfor %}
-                    </select>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Item</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" name="item_title" value="{{ item.item_title }}">
+                    <form method = "POST">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect">Select Room</label>
+                            <select class="form-control" id="exampleFormControlSelect" name="room_name">
+                              <option value="" disabled selected>Select Room</option>
+                              {% for room in rooms %}
+                                  {% if room == item_room %}
+                                      <option value="{{ room }}" selected>{{ room }}</option>
+                                  {% else %}
+                                      <option value="{{ room }}">{{ room }}</option>
+                                  {% endif %}
+                              {% endfor %}
+                            </select>
+                        </div>    
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Item</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="item_title" value="{{ item.item_title }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Make</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2" name="make" value="{{ item.make }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput3">Model</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput3" name="model" value="{{ item.model }}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                    
                 </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Make</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" name="make" value="{{ item.make }}">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput3">Model</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput3" name="model" value="{{ item.model }}">
-                </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </form>
+            </div>    
             
         </div>    
     </div>        
