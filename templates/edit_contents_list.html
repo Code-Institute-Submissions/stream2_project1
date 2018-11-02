@@ -30,7 +30,7 @@
                                 <div id="{{ spaces_to_underscores(room) }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
                                         {% for item in items_by_room[room] %}
-                                            <p>{{ item.item_title }} - <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >edit</a> <a href="#" >delete</a></p>
+                                            <p>{{ item.item_title }} - <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >edit</a> <a href="{{ url_for("delete_item_confirm", room=room, item_id=item._id) }}" >delete</a></p>
                                         {% endfor %}
                                     </div>
                                 </div>

@@ -102,6 +102,7 @@ def delete_room_confirm(room):
     items = mongo.db[room].find()
 
     return render_template("delete_room.html", items=items, room=room) 
+
     
 @app.route("/room/<room>/delete", methods=["GET", "POST"])
 def delete_room(room):
@@ -147,6 +148,24 @@ def edit_item(room, item_id):
         rooms = get_room_names()
         
         return render_template("edit_item.html", item=item, rooms=rooms, item_room=room)
+
+
+# Delete Item Confirmation App Route
+@app.route("/item/<room>/<item_id>/delete/confirm")
+def delete_item_confirm(room, item_id):
+    item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
+    
+    return render_template("delete_item.html", room=room, item=item)
+
+
+@app.route("/room/<room>/<item_id>/delete", methods=["GET", "POST"])
+def delete_item(room, item_id):
+    if request.method == "POST":
+        mongo.db[room].remove({"_id":ObjectId(item_id)})
+    
+        return redirect(url_for("show_contents_list", room=room, item_id=item_id))
+    else:
+        return redirect(url_for("show_contents_list", room=room))
 
 
 if __name__ == "__main__":
