@@ -38,6 +38,18 @@ def show_contents_list():
     return render_template("contents_list.html", items_by_room=items_by_room)
 
     
+# Edit Contents List App Route
+@app.route("/contents_list/edit")
+def edit_contents_list():
+    rooms = get_room_names()
+    
+    items_by_room = {}
+    for room in rooms:
+        items_by_room[room] = mongo.db[room].find()
+    
+    return render_template("edit_contents_list.html", items_by_room=items_by_room)
+    
+    
 # Show Room Detail App Route
 @app.route("/room/<room>")
 def show_room_detail(room):
@@ -82,7 +94,25 @@ def edit_room(room):
         rooms = get_room_names()
         
         return render_template("edit_room.html", rooms=rooms, room_room=room)
-        
+
+
+# Delete Room Confirmation App Route
+@app.route("/room/<room>/delete/confirm")
+def delete_room_confirm(room):
+    items = mongo.db[room].find()
+
+    return render_template("delete_room.html", items=items, room=room) 
+    
+@app.route("/room/<room>/delete", methods=["GET", "POST"])
+def delete_room(room):
+    if request.method == "POST":
+        mongo.db.drop_collection(room)
+    
+        return redirect(url_for("show_contents_list", room=room))
+    else:
+        return redirect(url_for("show_contents_list", room=room))
+
+
 
 # Add Item App Route
 @app.route("/add_item", methods=["GET", "POST"])

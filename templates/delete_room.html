@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-10 offset-1">
+
+            <div class="card">
+                <div class="card-header">
+                    <h1>{{ room }}</h1>
+                </div>
+                <div class="card-body">
+                    {% for item in items %}
+                        <p class="card-title">{{ item.item_title }}</p>
+                    {% endfor %}
+                    
+                    <h2>Are you sure you want to delete?</h2>
+                    <form action="{{ url_for('delete_room', room=room) }}" method="POST">
+                        <button type="submit" class="btn btn-primary">Yes</button>
+                    </form>
+                    
+                    <a class="btn btn-primary" href="{{ url_for('show_contents_list') }}" role="button">No</a>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
