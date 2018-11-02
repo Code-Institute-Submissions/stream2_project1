@@ -14,6 +14,22 @@
                     <p class="card-text">{{ item.make }}</p>
                     <p class="card-title">Model</p>
                     <p class="card-text">{{ item.model }}</p>
+                    <p class="card-title">Serial Number</p>
+                    <p class="card-text">{{ item.serial_number }}</p>
+                    <p class="card-title">Date Purchased</p>
+                    <p class="card-text">{{ item.date_purchased }}</p>
+                    <p class="card-title">Where Purchased</p>
+                    <p class="card-text">{{ item.where_purchased }}</p>
+                    <p class="card-title">Purchase Price</p>
+                    <p class="card-text">{{ item.purchase_price }}</p>
+                    <p class="card-title">Estimated Value</p>
+                    <p class="card-text">{{ item.estimated_value }}</p>
+                    <p class="card-title">Notes</p>
+                    <p class="card-text">{{ item.notes }}</p>
+                    <p class="card-title">Image of Item</p>
+                    <p class="card-text">{{ item.image_item }}</p>
+                    <p class="card-title">Image of Receipt</p>
+                    <p class="card-text">{{ item.image_receipt }}</p>
                     
                     <h2>Are you sure you want to delete?</h2>
                     <form action="{{ url_for('delete_item', room=room, item_id=item._id) }}" method="POST">

@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 import os
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from base64 import b64encode
+import base64
 
 app = Flask(__name__)
 
@@ -119,7 +121,17 @@ def delete_room(room):
 @app.route("/add_item", methods=["GET", "POST"])
 def add_item():
     if request.method == "POST":
+        
+        image_item = request.files["image_item"]
+        image_item_string = base64.b64encode(image_item.read()).decode("utf-8")
+        image_receipt = request.files["image_receipt"]
+        image_receipt_string = base64.b64encode(image_receipt.read()).decode("utf-8")
+        
         form_values = request.form.to_dict()
+        form_values["image_item"] = "data:image/png;base64," + image_item_string
+        form_values["image_item_filename"] = image_item.filename
+        form_values["image_receipt"] = "data:image/png;base64," + image_receipt_string
+        form_values["image_receipt_filename"] = image_receipt.filename
         room = form_values["room_name"]
         mongo.db[room].insert_one(form_values)
         
@@ -135,6 +147,23 @@ def add_item():
 def edit_item(room, item_id):
     if request.method == "POST":
         form_values = request.form.to_dict()
+        
+        if "image_item" in request.files:
+            image_item = request.files["image_item"]
+            image_item_string = base64.b64encode(image_item.read()).decode("utf-8")
+            form_values["image_item"] = "data:image/png;base64," + image_item_string
+        else:
+            old_image_item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
+            form_values["image_item"] = old_image_item["image_item"]
+            
+        if "image_receipt" in request.files:
+            image_receipt = request.files["image_receipt"]
+            image_receipt_string = base64.b64encode(image_receipt.read()).decode("utf-8")
+            form_values["image_receipt"] = "data:image/png;base64," + image_receipt_string
+        else:
+            old_image_receipt = mongo.db[room].find_one({"_id": ObjectId(item_id)})
+            form_values["image_receipt"] = old_image_receipt["image_receipt"]    
+        
         mongo.db[room].update({"_id": ObjectId(item_id)}, form_values)
         
         if form_values["room_name"] != room:
