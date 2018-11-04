@@ -5,3 +5,11 @@ main {
 .fixed-bottom {
     left: auto;
 }
+
+.btn-link:hover {
+    text-decoration: none;
+}
+
+.btn-link.focus, .btn-link:focus {
+    text-decoration: none;
+}

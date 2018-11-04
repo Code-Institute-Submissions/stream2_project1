@@ -18,7 +18,7 @@
                                 <div class="card-header" id="headingOne">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ spaces_to_underscores(room) }}" aria-expanded="true" aria-controls="collapseOne">
-                                          {{ room }}
+                                          <i class="fas fa-bars"></i> {{ room }} <i class="fas fa-caret-down"></i>
                                         </button>
                                         <div class="btn-group float-right" role="group" aria-label="Basic example">
                                           <a class="btn btn-primary" href="{{ url_for("edit_room", room=room) }}" role="button">EDIT</a>
@@ -31,6 +31,7 @@
                                     <div class="card-body">
                                         {% for item in items_by_room[room] %}
                                             <p>{{ item.item_title }} - <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >edit</a> <a href="{{ url_for("delete_item_confirm", room=room, item_id=item._id) }}" >delete</a></p>
+                                            <hr>
                                         {% endfor %}
                                     </div>
                                 </div>

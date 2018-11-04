@@ -10,26 +10,34 @@
                     <h1>{{ item.item_title }}</h1>
                 </div>
                 <div class="card-body">
-                    <p class="card-title">Make</p>
+                    
+                    <p class="card-title">Make/Artist/Author:</p>
                     <p class="card-text">{{ item.make }}</p>
-                    <p class="card-title">Model</p>
+                    <p class="card-title">Model/Description/Title:</p>
                     <p class="card-text">{{ item.model }}</p>
-                    <p class="card-title">Serial Number</p>
+                    <p class="card-title">Serial Number:</p>
                     <p class="card-text">{{ item.serial_number }}</p>
-                    <p class="card-title">Date Purchased</p>
+                    <p class="card-title">Date Purchased:</p>
                     <p class="card-text">{{ item.date_purchased }}</p>
-                    <p class="card-title">Where Purchased</p>
+                    <p class="card-title">Where Purchased:</p>
                     <p class="card-text">{{ item.where_purchased }}</p>
-                    <p class="card-title">Purchase Price</p>
+                    <p class="card-title">Purchase Price (euro):</p>
                     <p class="card-text">{{ item.purchase_price }}</p>
-                    <p class="card-title">Estimated Value</p>
+                    <p class="card-title">Estimated Value (euro):</p>
                     <p class="card-text">{{ item.estimated_value }}</p>
-                    <p class="card-title">Notes</p>
+                    <p class="card-title">Notes:</p>
                     <p class="card-text">{{ item.notes }}</p>
-                    <p class="card-title">Image of Item</p>
-                    <p class="card-text"><img src="{{ item.image_item }}" /></p>
-                    <p class="card-title">Image of Receipt</p>
-                    <p class="card-text"><img src="{{ item.image_receipt }}" /></p>
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="card-title">Image of Item:</p>
+                            <p class="card-text"><img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></p>
+                        </div>
+                        <div class="col-6">
+                            <p class="card-title">Image of Receipt:</p>
+                            <p class="card-text"><img class="img-thumbnail" src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></p>
+                        </div>
+                    </div>
                     
                 </div>
             </div>        
