@@ -1,11 +1,16 @@
+/*Styling to move main below fixed nav*/
 main {
     margin-top: 100px;
 }
 
+
+/*Styling to ensure fixed button doesn't interfere with form submit buttons*/
 .fixed-bottom {
     left: auto;
 }
 
+
+/*Styling to remove underline from buttons on collapsible forms*/
 .btn-link:hover {
     text-decoration: none;
 }
@@ -14,10 +19,25 @@ main {
     text-decoration: none;
 }
 
+
+/*Styling for delete "yes" and "no" buttons*/
 .btn-form {
     display: inline-block;
 }
 
 .btn-delete {
     width: 80px;
+}
+
+/*Styling for image thumbnail on list and detail pages for different screen sizes*/
+@media (max-width: 768px) {
+    .img-thumbnail-mobile {
+        width: 20%;
+    }
+}
+
+@media (max-width: 576px) {
+    .img-thumbnail-mobile {
+        width: 30%;
+    }
 }

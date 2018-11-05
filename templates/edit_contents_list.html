@@ -22,7 +22,7 @@
                                         </button>
                                         <div class="btn-group float-right" role="group" aria-label="Basic example">
                                           <a class="btn btn-primary" href="{{ url_for("edit_room", room=room) }}" role="button">EDIT</a>
-                                          <a class="btn btn-primary" href="{{ url_for('delete_room_confirm', room=room) }}" role="button">DELETE</a>
+                                          <a class="btn btn-primary" href="{{ url_for('delete_room', room=room) }}" role="button">DELETE</a>
                                         </div>
                                     </h5>
                                 </div>
@@ -30,7 +30,11 @@
                                 <div id="{{ spaces_to_underscores(room) }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
                                         {% for item in items_by_room[room] %}
-                                            <p>{{ item.item_title }} - <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >edit</a> <a href="{{ url_for("delete_item_confirm", room=room, item_id=item._id) }}" >delete</a></p>
+                                        
+                                            <img class="img-thumbnail img-thumbnail-mobile" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="10%" height="auto" />
+                                        
+                                            <p>{{ item.item_title }} - <a href="{{ url_for("edit_item", room=room, item_id=item._id) }}" >edit</a> <a href="{{ url_for("delete_item", room=room, item_id=item._id) }}" >delete</a></p>
+                                            
                                             <hr>
                                         {% endfor %}
                                     </div>

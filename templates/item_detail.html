@@ -6,8 +6,15 @@
         <div class="col-10 offset-1">
            
             <div class="card">
-                <div class="card-header">
-                    <h1>{{ item.item_title }}</h1>
+                <div class="card-header card-header-mobile">
+                    <div class="row">
+                        <div class="col-8">
+                            <h1>{{ item.item_title }}</h1>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-primary float-right" onClick="printPage()" type="button">PRINT</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -61,11 +68,11 @@
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <p class="card-title">Image of Item:</p>
-                            <p class="card-text"><img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></p>
+                            <p class="card-img-bottom figure"><img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></p>
                         </div>
                         <div class="col-12 col-md-6">
                             <p class="card-title">Image of Receipt:</p>
-                            <p class="card-text"><img class="img-thumbnail" src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></p>
+                            <p class="card-img-bottom"><img class="img-thumbnail" src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></p>
                         </div>
                     </div>
                     

@@ -11,7 +11,11 @@
                 </div>
                 <div class="card-body">
                     {% for item in items %}
+                    
+                        <img class="img-thumbnail img-thumbnail-mobile" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="10%" height="auto" />
+                        
                         <p class="card-title">{{ item.item_title }}</p>
+                        
                         <hr>
                     {% endfor %}
                     
