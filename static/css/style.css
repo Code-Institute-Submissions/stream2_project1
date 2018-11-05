@@ -13,3 +13,11 @@ main {
 .btn-link.focus, .btn-link:focus {
     text-decoration: none;
 }
+
+.btn-form {
+    display: inline-block;
+}
+
+.btn-delete {
+    width: 80px;
+}

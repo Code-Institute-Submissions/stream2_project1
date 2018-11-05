@@ -11,11 +11,11 @@
                 </div>
                 
                 <div class="card-body">
-            
-                    <form method = "POST" enctype="multipart/form-data">
+                    <p>* required</p>
+                    <form class="needs-validation" method = "POST" enctype="multipart/form-data" novalidate>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect">Select a Room:</label>
-                            <select class="form-control" id="exampleFormControlSelect" name="room_name">
+                            <label for="exampleFormControlSelect">* Select a Room:</label>
+                            <select class="form-control" id="exampleFormControlSelect" name="room_name" required>
                               <option value="" disabled selected>Select Room</option>
                               {% for room in rooms %}
                                   {% if room == item_room %}
@@ -25,10 +25,22 @@
                                   {% endif %}
                               {% endfor %}
                             </select>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                You did not select a room.
+                            </div
                         </div>    
                         <div class="form-group">
-                            <label for="formGroupExampleInput">Item:</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="item_title" value="{{ item.item_title }}">
+                            <label for="formGroupExampleInput">* Item:</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="item_title" value="{{ item.item_title }}" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                You did not enter an item.
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Make/Artist/Author:</label>
