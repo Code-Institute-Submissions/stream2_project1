@@ -12,7 +12,7 @@
                             <h1>Content List</h1>
                         </div>
                         <div class="col-4">
-                            <a class="btn btn-primary float-right" href="{{ url_for('edit_contents_list') }}" role="button"><i class="far fa-edit"></i></a>
+                            <a class="btn btn-primary float-right" href="{{ url_for('edit_contents_list') }}" role="button"><i class="far fa-edit"></i> edit</a>
                         </div>
                     </div> 
                 </div>
@@ -23,22 +23,32 @@
                         {% for room in items_by_room %} 
                             <div class="card">
                                 <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ spaces_to_underscores(room) }}" aria-expanded="true" aria-controls="collapseOne">
-                                          <i class="fas fa-bars"></i> {{ room }} <i class="fas fa-caret-down"></i>
-                                        </button>
-                                        <a class="btn btn-primary float-right" href="{{ url_for("show_room_detail", room=room) }}" role="button">VIEW</a>
-                                    </h5>
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <h6 class="mb-0">
+                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ spaces_to_underscores(room) }}" aria-expanded="true" aria-controls="collapseOne">
+                                                  <i class="fas fa-bars"></i> {{ room }} <i class="fas fa-caret-down"></i>
+                                                </button>
+                                            </h6>
+                                        </div>
+                                        <div class="col-4">
+                                            <a class="btn btn-primary float-right" href="{{ url_for("show_room_detail", room=room) }}" role="button">view</a>
+                                        </div>
+                                    </div>
                                 </div>
                 
                                 <div id="{{ spaces_to_underscores(room) }}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
                                         {% for item in items_by_room[room] %}
-                                            
-                                            <img class="img-thumbnail img-thumbnail-mobile" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="10%" height="auto" />
-                                        
-                                            <p>{{ item.item_title }} - <a href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}" >view</a></p>
-                                                
+                                            <div class="row">
+                                                <div class="col-5 col-md-3">
+                                                    <img class="img-thumbnail img-thumbnail-mobile" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="120px" height="auto" />
+                                                </div>
+                                                <div class="col-7 col-md-9">
+                                                    <h4>{{ item.item_title }}</h4>
+                                                    <p><a href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}" >view</a></p>
+                                                </div>
+                                            </div>    
                                             <hr>
                                         {% endfor %}
                                     </div>

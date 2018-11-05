@@ -29,15 +29,37 @@ main {
     width: 80px;
 }
 
+
 /*Styling for image thumbnail on list and detail pages for different screen sizes*/
 @media (max-width: 768px) {
     .img-thumbnail-mobile {
-        width: 20%;
+        width: 110px;
     }
 }
 
 @media (max-width: 576px) {
     .img-thumbnail-mobile {
-        width: 30%;
+        width: 100px;
     }
 }
+
+
+/*Styling to remove certain elements from the printed page*/
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+
+/*@media (max-width: 576px) {*/
+/*    .btn-group {*/
+/*        flex-direction: column;*/
+/*        align-items: flex-start;*/
+/*        justify-content: center;*/
+/*        position: relative;*/
+/*        display: inline-flex;*/
+/*        vertical-align: middle;*/
+/*    }    */
+    
+/*}*/
