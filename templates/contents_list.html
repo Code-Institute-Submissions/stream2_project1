@@ -8,12 +8,12 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-12">
                             <h1>Content List</h1>
                         </div>
-                        <div class="col-4">
-                            <a class="btn btn-primary float-right" href="{{ url_for('edit_contents_list') }}" role="button"><i class="far fa-edit"></i> edit</a>
-                        </div>
+                        <!--<div class="col-4">-->
+                            <!--<a class="btn btn-primary float-right" href="{{ url_for('edit_contents_list') }}" role="button"><i class="far fa-edit"></i> edit</a>-->
+                        <!--</div>-->
                     </div> 
                 </div>
                 
@@ -24,15 +24,17 @@
                             <div class="card">
                                 <div class="card-header" id="headingOne">
                                     <div class="row">
-                                        <div class="col-8">
+                                        <div class="col-10">
+                                            <h3 class="mb-0">
+                                            <a class="content-list-room" href="{{ url_for("show_room_detail", room=room) }}"> {{ room }} </a>
+                                            </h3>
+                                        </div>
+                                        <div class="col-2">
                                             <h6 class="mb-0">
-                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ spaces_to_underscores(room) }}" aria-expanded="true" aria-controls="collapseOne">
-                                                  <i class="fas fa-bars"></i> {{ room }} <i class="fas fa-caret-down"></i>
+                                                <button class="btn btn-link float-right" type="button" data-toggle="collapse" data-target="#{{ spaces_to_underscores(room) }}" aria-expanded="true" aria-controls="collapseOne">
+                                                  <i class="fas fa-bars"></i> <i class="fas fa-caret-down"></i>
                                                 </button>
                                             </h6>
-                                        </div>
-                                        <div class="col-4">
-                                            <a class="btn btn-primary float-right" href="{{ url_for("show_room_detail", room=room) }}" role="button">view</a>
                                         </div>
                                     </div>
                                 </div>
@@ -45,8 +47,7 @@
                                                     <img class="img-thumbnail img-thumbnail-mobile" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="120px" height="auto" />
                                                 </div>
                                                 <div class="col-7 col-md-9">
-                                                    <h4>{{ item.item_title }}</h4>
-                                                    <p><a href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}" >view</a></p>
+                                                    <h3><a href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}" >{{ item.item_title }}</a></h3>
                                                 </div>
                                             </div>    
                                             <hr>

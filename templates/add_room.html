@@ -12,10 +12,6 @@
                 
                 <div class="card-body">
                     
-                    {% for room in rooms %}
-                    <p>{{ room }}</p>
-                    {% endfor %}
-                    
                     <form class="needs-validation" method = "POST" novalidate>
                         <div class="form-group">
                             <label for="formGroupExampleInput">Room Name:</label>
@@ -24,7 +20,7 @@
                                 You did not enter a room name.
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Add</button>
+                        <button type="submit" class="btn btn-primary btn-form-detail">Add</button>
                     </form>
                 
                 </div>

@@ -24,11 +24,12 @@
                     
                     <h6>Are you sure you want to delete this room?</h6>
                     
-                    <form class="btn-form" action="{{ url_for('delete_room', room=room) }}" method="POST">
-                        <button type="submit" class="btn btn-primary btn-delete"><i class="fas fa-check"></i> Yes</button>
+                    <form action="{{ url_for('delete_room', room=room) }}" method="POST">
+                        <button type="submit" class="btn btn-primary btn-form-detail">Yes</button>
+                        <a class="btn btn-primary btn-form-detail" href="{{ url_for('show_contents_list') }}" role="button"></i> No</a>
                     </form>
                     
-                    <a class="btn btn-primary btn-delete" href="{{ url_for('show_contents_list') }}" role="button"><i class="fas fa-times"></i> No</a>
+                    
                     
                 </div>
             </div>

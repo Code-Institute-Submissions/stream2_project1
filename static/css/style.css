@@ -21,12 +21,16 @@ main {
 
 
 /*Styling for delete "yes" and "no" buttons*/
-.btn-form {
-    display: inline-block;
-}
+/*.btn-form {*/
+/*    display: inline-block;*/
+/*}*/
 
-.btn-delete {
-    width: 80px;
+/*.btn-delete {*/
+/*    width: 80px;*/
+/*}*/
+
+.btn-form-detail {
+    width: 80px
 }
 
 
@@ -52,9 +56,17 @@ main {
 }
 
 
-
+/*Styling for detail and form pages*/
 .card-notes {
-    padding-bottom: 200px;
+    background-color: lemonchiffon;
+}
+
+.text-box {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 100%;
+    height: 150px;
 }
 
 .card-title {
@@ -64,4 +76,10 @@ main {
 .card-text {
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+
+/*Styling for print,edit, delete button*/
+.fa-ellipsis-v  { 
+    font-size: 30px;
 }
