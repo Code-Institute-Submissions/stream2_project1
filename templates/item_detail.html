@@ -11,33 +11,29 @@
                         <div class="col-8">
                             <h1>{{ item.item_title }}</h1>
                         </div>
-                        <div class="col-4">
+                        <div class="col-4 d-none d-md-block">
                             <button class="btn btn-primary float-right no-print" onClick="printPage()" type="button">PRINT</button>
+                        </div>
+                        <div class="col-4 d-block d-md-none">
+                            <button class="btn btn-primary float-right no-print" onClick="mailto()" type="button">EMAIL</button>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12">
-                            <p class="card-title">Police Notes:</p>
+                        <div class="col-12 d-none d-md-block">
+                            <p class="card-title">For use by police/insurance company:</p>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12 col-md-6">
-                            <span><i class="far fa-square"></i> Stolen <i class="far fa-square"></i> Damaged</span>
+                        <div class="col-12 col-md-6 d-none d-md-block">
+                            <span class="card-notes"><i class="far fa-square"></i> Stolen <i class="far fa-square"></i> Damaged</span>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <p>Comments/notes on condition:</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <p class="card-title">Image of Item:</p>
-                            <p class="card-img"><img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></p>
+                        <div class="col-12 col-md-6 d-none d-md-block">
+                            <p class="card-notes">Comments/notes on condition:</p>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="d-none d-md-block">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="card-title">Make/Artist/Author:</p>
@@ -80,14 +76,46 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-12 col-md-8">
+                        <div class="col-12 col-md-6">
                             <p class="card-title">Notes:</p>
                             <p class="card-text">{{ item.notes }}</p>
                         </div>
-                        <div class="col-12 col-md-4">
+                        <!--<div class="col-12 col-md-3">-->
+                        <!--    <p class="card-title">Image of Item:</p>-->
+                        <!--    <p class="card-img"><img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></p>-->
+                        <!--</div>-->
+                        <div class="col-12 col-md-3">
+                            <p class="card-title">Image of Item:</p>
+                            <button type="button" class=" btn card-img" data-toggle="modal" data-target="#image-item-Modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></button>
+                        </div>
+                        
+                        <div class="modal fade" id="image-item-Modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <button type="button" class="close" data-dismiss="modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-md-3">
                             <p class="card-title">Image of Receipt:</p>
-                            <p class="card-img"><img class="img-thumbnail" src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></p>
-                        </div>    
+                            <button type="button" class=" btn card-img" data-toggle="modal" data-target="#image-receipt-Modal"><img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></button>
+                        </div>
+                        
+                        <div class="modal fade" id="image-receipt-Modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <button type="button" class="close" data-dismiss="modal"><img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--<div class="col-12 col-md-3">-->
+                        <!--    <p class="card-title">Image of Receipt:</p>-->
+                        <!--    <p class="card-img"><img class="img-thumbnail" src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></p>-->
+                        <!--</div>    -->
                     </div>
                     
                 </div>

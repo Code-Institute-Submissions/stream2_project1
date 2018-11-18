@@ -120,14 +120,16 @@ def add_item():
         if "image_item" in request.files:
             image_item = request.files["image_item"]
             image_item_string = base64.b64encode(image_item.read()).decode("utf-8")
-            form_values["image_item"] = "data:image/png;base64," + image_item_string
             form_values["image_item_filename"] = image_item.filename
+            form_values["image_item"] = "data:image/png;base64," + image_item_string
+            
         
         if "image_receipt" in request.files:
             image_receipt = request.files["image_receipt"]
             image_receipt_string = base64.b64encode(image_receipt.read()).decode("utf-8")
-            form_values["image_receipt"] = "data:image/png;base64," + image_receipt_string
             form_values["image_receipt_filename"] = image_receipt.filename
+            form_values["image_receipt"] = "data:image/png;base64," + image_receipt_string
+            
         
         room = form_values["room_name"]
         mongo.db[room].insert_one(form_values)

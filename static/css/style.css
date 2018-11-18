@@ -52,6 +52,16 @@ main {
 }
 
 
-.row_police-notes {
-    height: 100px;
+
+.card-notes {
+    padding-bottom: 200px;
+}
+
+.card-title {
+    color: red;
+}
+
+.card-text {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
