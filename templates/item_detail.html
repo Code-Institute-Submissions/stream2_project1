@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-body">
                     
-                    <div class="card card-notes">
+                    <div class="card card-notes d-none d-md-block">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-12 d-none d-md-block">
@@ -66,7 +66,7 @@
                             <p class="card-text">{{ item.serial_number }}</p>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="d-none d-md-block">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="card-title">Date Purchased:</p>
@@ -81,7 +81,7 @@
                             <p class="card-text">{{ item.where_purchased }}</p>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="d-none d-md-block">
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="card-title">Purchase Price (euro):</p>
@@ -92,9 +92,9 @@
                             <p class="card-text">{{ item.estimated_value }}</p>
                         </div>    
                     </div>
-                    <hr>
+                    <hr class="d-none d-md-block">
                     <div class="row">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-4">
                             <p class="card-title">Notes:</p>
                             <p class="card-text">{{ item.notes }}</p>
                         </div>
@@ -102,9 +102,10 @@
                         <!--    <p class="card-title">Image of Item:</p>-->
                         <!--    <p class="card-img"><img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></p>-->
                         <!--</div>-->
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-4">
                             <p class="card-title">Image of Item:</p>
                             <button type="button" class=" btn card-img" data-toggle="modal" data-target="#image-item-Modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></button>
+                            <p class="img-instr no-print">Click on the image to enlarge.</p>
                         </div>
                         
                         <div class="modal fade" id="image-item-Modal" tabindex="-1" role="dialog">
@@ -116,9 +117,10 @@
                             </div>
                         </div>
                         
-                        <div class="col-12 col-md-3">
+                        <div class="col-12 col-md-4">
                             <p class="card-title">Image of Receipt:</p>
                             <button type="button" class=" btn card-img" data-toggle="modal" data-target="#image-receipt-Modal"><img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></button>
+                            <p class="img-instr no-print">Click on the image to enlarge.</p>
                         </div>
                         
                         <div class="modal fade" id="image-receipt-Modal" tabindex="-1" role="dialog">
@@ -141,6 +143,5 @@
             
         </div>
     </div>
-<p>change</p>
 
 {% endblock %}        
