@@ -153,7 +153,8 @@ def edit_item(room, item_id):
             form_values["image_item"] = "data:image/png;base64," + image_item_string
         else:
             old_image_item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
-            form_values["image_item"] = old_image_item["image_item"]
+            if "image_item" in old_image_item:
+                form_values["image_item"] = old_image_item["image_item"]
             
         if "image_receipt" in request.files:
             image_receipt = request.files["image_receipt"]
@@ -161,7 +162,8 @@ def edit_item(room, item_id):
             form_values["image_receipt"] = "data:image/png;base64," + image_receipt_string
         else:
             old_image_receipt = mongo.db[room].find_one({"_id": ObjectId(item_id)})
-            form_values["image_receipt"] = old_image_receipt["image_receipt"]    
+            if "image_receipt" in old_image_item:
+                form_values["image_receipt"] = old_image_receipt["image_receipt"]    
         
         mongo.db[room].update({"_id": ObjectId(item_id)}, form_values)
         
