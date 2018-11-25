@@ -10,80 +10,16 @@
                     <h1>{{ item.item_title }}</h1>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="card-title">Make:</p>
-                            <p class="card-text">{{ item.make }}</p>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <p class="card-title">Model:</p>
-                            <p class="card-text">{{ item.model }}</p>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <p class="card-title">Serial Number:</p>
-                            <p class="card-text">{{ item.serial_number }}</p>
-                        </div>    
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="card-title">Date Purchased:</p>
-                            <p class="card-text">{{ item.date_purchased }}</p>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <p class="card-title">Warranty:</p>
-                            <p class="card-text">{{ item.warranty }}</p>
-                        </div>
-                         <div class="col-12 col-md-4">
-                            <p class="card-title">Where Purchased:</p>
-                            <p class="card-text">{{ item.where_purchased }}</p>
-                        </div>    
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="card-title">Purchase Price (euro):</p>
-                            <p class="card-text">{{ item.purchase_price }}</p>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <p class="card-title">Estimated Value (euro):</p>
-                            <p class="card-text">{{ item.estimated_value }}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 col-md-12">
-                            <p class="card-title">Notes:</p>
-                            <p class="card-text">{{ item.notes }}</p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <p>Image of Item</p>
-                            <img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <p>Image of Receipt</p>
-                            <img class="img-thumbnail" src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" />
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-12 col-md-12">
-                            <h6>Are you sure you want to delete this item?</h6>
-                        
-                            <form action="{{ url_for('delete_item', room=room, item_id=item._id) }}" method="POST">
-                                <button type="submit" class="btn btn-primary btn-form-detail">Yes</button>
-                                <a class="btn btn-primary btn-form-detail" href="{{ url_for('show_contents_list') }}" role="button">No</a>
-                            </form>
-                        
-                            
-                        </div>
-                    </div>
                     
+                    <h3>Are you sure you want to delete this item?</h3>
+                
+                    <form action="{{ url_for('delete_item', room=room, item_id=item._id) }}" method="POST">
+                        <button type="submit" class="btn btn-primary btn-form-detail">Yes</button>
+                        <a class="btn btn-primary btn-form-detail" href="{{ url_for('show_contents_list') }}" role="button">No</a>
+                    </form>
+                        
                 </div>
-            </div>        
+            </div>
             
         </div>
     </div>

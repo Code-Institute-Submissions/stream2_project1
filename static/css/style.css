@@ -20,6 +20,12 @@ main {
 }
 
 
+/*Styling to remove margin top and bottom from <hr> in items loop*/
+/*.hr-list {*/
+/*    margin-top: 0rem;*/
+/*    margin-bottom: 0rem;*/
+/*}*/
+
 /*Styling for delete "yes" and "no" buttons*/
 /*.btn-form {*/
 /*    display: inline-block;*/
@@ -35,17 +41,17 @@ main {
 
 
 /*Styling for image thumbnail on list and detail pages for different screen sizes*/
-@media (max-width: 768px) {
-    .img-thumbnail-mobile {
-        width: 110px;
-    }
-}
+/*@media (max-width: 768px) {*/
+/*    .img-thumbnail-mobile {*/
+/*        width: 110px;*/
+/*    }*/
+/*}*/
 
-@media (max-width: 576px) {
-    .img-thumbnail-mobile {
-        width: 100px;
-    }
-}
+/*@media (max-width: 576px) {*/
+/*    .img-thumbnail-mobile {*/
+/*        width: 100px;*/
+/*    }*/
+/*}*/
 
 
 /*Styling to remove certain elements from the printed page*/
@@ -88,3 +94,4 @@ main {
 .fa-ellipsis-v  { 
     font-size: 30px;
 }
+

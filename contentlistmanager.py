@@ -162,7 +162,7 @@ def edit_item(room, item_id):
             form_values["image_receipt"] = "data:image/png;base64," + image_receipt_string
         else:
             old_image_receipt = mongo.db[room].find_one({"_id": ObjectId(item_id)})
-            if "image_receipt" in old_image_item:
+            if "image_receipt" in old_image_receipt:
                 form_values["image_receipt"] = old_image_receipt["image_receipt"]    
         
         mongo.db[room].update({"_id": ObjectId(item_id)}, form_values)
