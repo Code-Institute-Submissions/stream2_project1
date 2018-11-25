@@ -6,16 +6,13 @@
         <div class="col-10 offset-1">
 
             <div class="card">
-                <div class="card-header">
-                        <div class="row">
-                            <div class="col-10">
-                                <h1>{{ room }}</h1>
-                            </div>
-                            <div class="col-2">
-                                <!--<button class="btn btn-primary float-right no-print" onClick="printPage()" type="button">PRINT</button>-->
-                                
-                                
-                                <div class="dropright text-right">
+                <div class="card-header card-header-col">
+                    <div class="row">
+                        <div class="col-10">
+                            <h1>{{ room }}</h1>
+                        </div>
+                        <div class="col-2">
+                            <div class="dropright text-right">
                                 <a class="no-print" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
                                 <div class="dropdown-menu" aria-labelledby="droprightMenuButton">
                                     <a class="dropdown-item d-none d-md-block" href="javascript:window.print()">PRINT</a>
@@ -24,10 +21,11 @@
                                 </div>
                             </div>
                                 
-                            </div>                        
-                        </div>            
+                        </div>                        
+                    </div>
                 </div>
-                <div class="card-body">
+                
+                <div class="card-body card-body-col">
                     
                         <div class="row">
                             {% for item in items %}
@@ -44,7 +42,8 @@
                                     </div>
                                 </div>            
                             
-                                <h5><a href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}">{{ item.item_title }}</a></h5>
+                                <h5><a class="room-list-item" href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}">{{ item.item_title }}</a></h5>
+                            
                             </div>
                             {% endfor %}
                         </div>

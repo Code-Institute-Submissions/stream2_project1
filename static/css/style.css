@@ -1,6 +1,59 @@
+body {
+    background-image: url('/static/images/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /*Styling to move main below fixed nav*/
 main {
     margin-top: 100px;
+}
+
+
+/*Styling colours*/
+
+.header-navbar-col {
+    background-color: #00A7E1;
+}
+
+.btn-footer-col {
+    color: #fff;
+    background-color: #00A7E1;
+    border-color: #00A7E1;
+} 
+
+.card-header-col {
+    color: #fff;
+    background-color: #3581B8;
+}
+
+.card-body-col {
+    background-color: #FCB07E;
+}
+
+.accordian-card-header-col {
+    background-color: #FCB07E;
+}
+
+.accordian-card-body-col {
+    background-color: #F7D488;
+}
+
+.content-list-room {
+    color: #ae4804;
+}
+
+.content-list-item {
+    color: #a7760c;
+}
+
+.room-list-item{
+    color: #ae4804;
+}
+
+a:hover {
+    color: white;
 }
 
 
@@ -11,7 +64,12 @@ main {
 
 
 /*Styling to remove underline from buttons on collapsible forms*/
+.btn-link {
+    color: #ae4804;
+}
+
 .btn-link:hover {
+    color: white;
     text-decoration: none;
 }
 
@@ -36,7 +94,10 @@ main {
 /*}*/
 
 .btn-form-detail {
-    width: 80px
+    width: 80px;
+    color: #fff;
+    background-color: #3581B8;
+    border-color: #3581B8;
 }
 
 
@@ -63,8 +124,13 @@ main {
 
 
 /*Styling for detail and form pages*/
-.card-notes {
-    background-color: lemonchiffon;
+.card-header {
+    border-bottom: none;
+}
+
+
+.card-notes-col {
+    background-color: #F7D488;
 }
 
 .text-box {
@@ -76,7 +142,7 @@ main {
 }
 
 .card-title {
-    color: grey;
+    color: #F4EBD9;
     font-size: 0.8rem;
 }
 
@@ -89,9 +155,13 @@ main {
     font-size: 0.8rem;
 }
 
+.delete-text {
+    color: #F4EBD9;
+}
 
 /*Styling for print,edit, delete button*/
-.fa-ellipsis-v  { 
+.fa-ellipsis-v  {
+    color: white;
     font-size: 30px;
 }
 
