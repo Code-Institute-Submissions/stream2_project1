@@ -99,30 +99,30 @@
                         <!--</div>-->
                         <div class="col-12 col-md-4">
                             <p class="card-title">Image of Item:</p>
-                            <button type="button" class=" btn card-img" data-toggle="modal" data-target="#image-item-Modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></button>
+                            <button type="button" class="btn card-img" data-toggle="modal" data-target="#image-item-Modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></button>
                             <p class="img-instr no-print">Click on the image to enlarge.</p>
                         </div>
                         
                         <div class="modal fade" id="image-item-Modal" tabindex="-1" role="dialog">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
-                                    </button>
+                                    <img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
+                                    <button class="btn btn-block btn-modal-detail" type="button" class="close" data-dismiss="modal">CLOSE</button>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="col-12 col-md-4">
                             <p class="card-title">Image of Receipt:</p>
-                            <button type="button" class=" btn card-img" data-toggle="modal" data-target="#image-receipt-Modal"><img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></button>
+                            <button type="button" class="btn card-img" data-toggle="modal" data-target="#image-receipt-Modal"><img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></button>
                             <p class="img-instr no-print">Click on the image to enlarge.</p>
                         </div>
                         
                         <div class="modal fade" id="image-receipt-Modal" tabindex="-1" role="dialog">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
-                                    <button type="button" class="close" data-dismiss="modal"><img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" />
-                                    </button>
+                                    <img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" />
+                                    <button class="btn btn-block btn-modal-detail" type="button" class="close" data-dismiss="modal">CLOSE</button>
                                 </div>
                             </div>
                         </div>

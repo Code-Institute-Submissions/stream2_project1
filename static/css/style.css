@@ -100,6 +100,12 @@ a:hover {
     border-color: #3581B8;
 }
 
+.btn-modal-detail {
+    color: #fff;
+    background-color: #3581B8;
+    border-color: #3581B8;
+}
+
 
 /*Styling for image thumbnail on list and detail pages for different screen sizes*/
 /*@media (max-width: 768px) {*/
