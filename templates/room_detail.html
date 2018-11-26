@@ -29,21 +29,9 @@
                     
                         <div class="row">
                             {% for item in items %}
-                            <div class="col-6 col-md-4 text-center">
-                                
-                                <button type="button" class=" btn card-img" data-toggle="modal" data-target="#image-item-Modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></button>
-                                
-                                <div class="modal fade" id="image-item-Modal" tabindex="-1" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <button type="button" class="close" data-dismiss="modal"><img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'"  alt="Image of Item" width="100%" height="auto" />
-                                            </button>     
-                                        </div>
-                                    </div>
-                                </div>            
-                            
-                                <h5><a class="room-list-item" href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}">{{ item.item_title }}</a></h5>
-                            
+                            <div class="col-12 col-md-4 text-center">
+                                <img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
+                                <h5 class="room-list-title"><a class="room-list-item" href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}">{{ item.item_title }}</a></h5>
                             </div>
                             {% endfor %}
                         </div>

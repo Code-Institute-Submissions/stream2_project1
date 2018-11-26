@@ -1,9 +1,19 @@
-body {
-    background-image: url('/static/images/background.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+#wrapper {
+        background-image: url('/static/images/bg-desktop.jpg');
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+
+@media only screen and (max-width: 576px) {   
+    #wrapper {
+        background-image: url('/static/images/bg-mobile.jpg');
+    }
 }
+
 
 /*Styling to move main below fixed nav*/
 main {
@@ -50,6 +60,10 @@ main {
 
 .room-list-item{
     color: #ae4804;
+}
+
+.room-list-title{
+    margin: 5px;
 }
 
 a:hover {
