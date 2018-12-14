@@ -27,9 +27,13 @@ def get_room_names():
             rooms.append(room)
     return rooms
 
+@app.route("/")
+def landing_page():
+    return render_template("landing_page.html")
+
 
 # Show Contents List App Route
-@app.route("/")
+@app.route("/contents")
 def show_contents_list():
     rooms = get_room_names()
     
@@ -41,15 +45,15 @@ def show_contents_list():
 
     
 # Edit Contents List App Route
-@app.route("/edit")
-def edit_contents_list():
-    rooms = get_room_names()
+# @app.route("/edit")
+# def edit_contents_list():
+#     rooms = get_room_names()
     
-    items_by_room = {}
-    for room in rooms:
-        items_by_room[room] = mongo.db[room].find()
+#     items_by_room = {}
+#     for room in rooms:
+#         items_by_room[room] = mongo.db[room].find()
     
-    return render_template("edit_contents_list.html", items_by_room=items_by_room)
+#     return render_template("edit_contents_list.html", items_by_room=items_by_room)
     
     
 # Show Room Detail App Route

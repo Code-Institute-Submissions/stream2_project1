@@ -12,6 +12,16 @@ main {
     margin-top: 100px;
 }
 
+/* Styling fonts*/
+
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
 
 /*Styling colours*/
 
