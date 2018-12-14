@@ -39,6 +39,28 @@
             font-family: 'Roboto', sans-serif;
             color: white;
         }
+        
+        .btn {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        h2 {
+            font-family: 'Roboto', sans-serif;
+            color: #ae4804;
+        }
+        
+        h4 {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+        
+        body {
+          background-color: #FCB07E;  
+        }
+        
+        .img-instr {
+            width: 100%;
+        }
     </style>
     
 </head>
@@ -56,20 +78,23 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-4">
-                <h6>Add Rooms and Items</h6>
-                <img class="img-fluid" src="https://via.placeholder.com/250" alt="">
-                <p>Text</p>
+            <div class="col-12 col-md-3">
+                <h2>How to use the app</h2>
             </div>
-            <div class="col-12 col-md-4">
-                <h6>View Room and Item Detail</h6>
-                <img class="img-fluid" src="https://via.placeholder.com/250" alt="">
-                <p>Text</p>
+            <div class="col-12 col-md-3">
+                <h4>View Rooms and Items</h4>
+                <img class="img-thumbnail img-instr" src="{{url_for('static', filename='images/content_list_instr.png')}}" alt="">
+                <p>Click on the icon on the right hand side to see a list of items in a room.</p>
             </div>
-            <div class="col-12 col-md-4">
-                <h6>Print Item Detail for Official Use</h6>
-                <img class="img-fluid" src="https://via.placeholder.com/250" alt="">
-                <p>Text</p>
+            <div class="col-12 col-md-3">
+                <h4>Add Rooms and Items</h4>
+                <img class="img-thumbnail img-instr" src="{{url_for('static', filename='images/content_add_instr.png')}}" alt="">
+                <p>Click on the plus icon in the bottom right hand corner to add a room or an item.</p>
+            </div>
+            <div class="col-12 col-md-3">
+                <h4>Print Item Detail</h4>
+                <img class=" img-thumbnail img-instr" src="{{url_for('static', filename='images/item_print_instr.png')}}" alt="">
+                <p>If anything ever goes missing, print a copy of the item detail and give it to the police or to your insurance company.</p>
             </div>
         </div>
     </div>

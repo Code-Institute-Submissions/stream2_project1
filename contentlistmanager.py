@@ -72,7 +72,7 @@ def add_room():
         room_name = request.form["room_name"]
         mongo.db.create_collection(room_name)
         
-        return redirect("/")
+        return redirect("/contents")
     else:
         rooms = get_room_names()
     
@@ -138,7 +138,7 @@ def add_item():
         room = form_values["room_name"]
         mongo.db[room].insert_one(form_values)
         
-        return redirect("/")
+        return redirect("/contents")
     else:
         rooms = get_room_names()
         

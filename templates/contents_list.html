@@ -6,7 +6,7 @@
         <div class="col-10 offset-1">
     
             <div class="card">
-                <h1 class="card-header card-header-col">Content List</h1>
+                <h2 class="card-header card-header-col">Content List</h2>
                 <div class="card-body">
     
                     <div class="accordion" id="accordionExample">
@@ -15,9 +15,9 @@
                                 <div class="card-header accordian-card-header-col" id="headingOne">
                                     <div class="row">
                                         <div class="col-10">
-                                            <h3 class="mb-0">
+                                            <h4 class="mb-0">
                                             <a class="content-list-room" href="{{ url_for("show_room_detail", room=room) }}"> {{ room }} </a>
-                                            </h3>
+                                            </h4>
                                         </div>
                                         <div class="col-2">
                                             <h6 class="mb-0">
@@ -34,7 +34,8 @@
                                         {% for item in items_by_room[room] %}
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <h5><a class="content-list-item" href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}" >{{ item.item_title }}</a></h5>
+                                                    <h6><a class="content-list-item" href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}" >{{ item.item_title }}</a>
+                                                    </h6>
                                                 </div>
                                             </div>    
                                             <hr class="hr-list">

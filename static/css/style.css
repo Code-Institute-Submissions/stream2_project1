@@ -14,11 +14,11 @@ main {
 
 /* Styling fonts*/
 
-h1 {
+.navbar-brand {
     font-family: 'Pacifico', cursive;
 }
 
-p {
+h1, h2, h3, h4, h5, h6, p {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -177,12 +177,8 @@ a:hover {
     padding-bottom: 20px;
 }
 
-.img-instr {
+.img-instr-text {
     font-size: 0.8rem;
-}
-
-.delete-text {
-    color: #F4EBD9;
 }
 
 /*Styling for print,edit, delete button*/
