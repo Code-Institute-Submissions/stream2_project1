@@ -29,9 +29,14 @@
                     
                         <div class="row">
                             {% for item in items %}
-                            <div class="col-12 col-md-4 text-center">
-                                <img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
-                                <h5 class="room-list-title"><a class="room-list-item" href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}">{{ item.item_title }}</a></h5>
+                            <div class="col-12 col-md-4">
+                                <div class="card mt-4" style="width: 100%;">
+                                    <img class="card-img-top" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
+                                    <div class="card-body card-body-alt-col">
+                                        <h5 class="card-title"><a class="room-list-item" href="{{ url_for("show_item_detail", room=room, item_id=item._id) }}">{{ item.item_title }}</a></h5>
+                                        <p class="card-text">Estimated value:<span class="float-right">€{{ item.estimated_value }}</span></p>
+                                    </div>
+                                </div>
                             </div>
                             {% endfor %}
                         </div>

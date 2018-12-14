@@ -37,7 +37,6 @@
     
 </head>
 <body>
-    <div id="wrapper">
     
     <header>
         <nav class="navbar fixed-top navbar-dark header-navbar-col">
@@ -55,6 +54,7 @@
     </main>
     
     <footer>
+        
         <div class="dropup fixed-bottom">
             <a class="btn btn-footer-col btn-lg no-print float-right" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-plus"></i>
@@ -64,6 +64,7 @@
                 <a class="dropdown-item text-right" href="{{ url_for('add_room') }}">Add Room</a>
             </div>
         </div>
+        
     </footer>
     
     
@@ -108,8 +109,6 @@
     <!-- Bootstrap 4 JS
 -------------------- -->
     <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
-    
-    
-    </div>
+
 </body>
 </html>

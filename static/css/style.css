@@ -1,18 +1,10 @@
-#wrapper {
-        background-image: url('/static/images/bg-desktop.jpg');
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-    }
 
-@media only screen and (max-width: 576px) {   
-    #wrapper {
-        background-image: url('/static/images/bg-mobile.jpg');
+body {
+        background-image: url('/static/images/bg-image.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
     }
-}
 
 
 /*Styling to move main below fixed nav*/
@@ -58,13 +50,17 @@ main {
     color: #a7760c;
 }
 
+.card-body-alt-col {
+    background-color: #F7D488;
+}
+
 .room-list-item{
     color: #ae4804;
 }
 
-.room-list-title{
-    margin: 5px;
-}
+/*.room-list-title{*/
+/*    margin: 5px;*/
+/*}*/
 
 a:hover {
     color: white;
@@ -161,12 +157,12 @@ a:hover {
     height: 200px;
 }
 
-.card-title {
+.item-card-title {
     color: #F4EBD9;
     font-size: 0.8rem;
 }
 
-.card-text {
+.item-card-text {
     padding-top: 20px;
     padding-bottom: 20px;
 }
