@@ -42,16 +42,19 @@
         
         .btn {
             font-family: 'Roboto', sans-serif;
+            color: #fff;
+            background-color: #3581B8;
+            border-color: #3581B8;
         }
         
         h2 {
             font-family: 'Roboto', sans-serif;
-            color: #ae4804;
+            color: white;
         }
         
-        h4 {
+        h4, p {
             font-family: 'Roboto', sans-serif;
-            color: white;
+            color: #ae4804;
         }
         
         body {
@@ -69,9 +72,9 @@
     <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4 title">Paraphernalia</h1>
-        <p class="lead mt-4 sub-title">Your personal belongings organised.</p>
+        <p class="lead mt-4 sub-title">Your personal belongings organised</p>
         <p class="lead mt-4">
-            <a class="btn btn-primary btn-lg" href="{{ url_for('show_contents_list') }}" role="button">Get started</a>
+            <a class="btn btn-lg" href="{{ url_for('show_contents_list') }}" role="button">Get started</a>
         </p>
     </div>
     </div>
@@ -82,17 +85,17 @@
                 <h2>How to use the app</h2>
             </div>
             <div class="col-12 col-md-3">
-                <h4>View Rooms and Items</h4>
+                <h4>View rooms and items</h4>
                 <img class="img-thumbnail img-instr" src="{{url_for('static', filename='images/content_list_instr.png')}}" alt="">
                 <p>Click on the icon on the right hand side to see a list of items in a room.</p>
             </div>
             <div class="col-12 col-md-3">
-                <h4>Add Rooms and Items</h4>
+                <h4>Add rooms and items</h4>
                 <img class="img-thumbnail img-instr" src="{{url_for('static', filename='images/content_add_instr.png')}}" alt="">
                 <p>Click on the plus icon in the bottom right hand corner to add a room or an item.</p>
             </div>
             <div class="col-12 col-md-3">
-                <h4>Print Item Detail</h4>
+                <h4>Print item details</h4>
                 <img class=" img-thumbnail img-instr" src="{{url_for('static', filename='images/item_print_instr.png')}}" alt="">
                 <p>If anything ever goes missing, print a copy of the item detail and give it to the police or to your insurance company.</p>
             </div>
