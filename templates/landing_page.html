@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     
-<!-- Jquery v3.3.1 and Popper JS 
+    <!-- Jquery v3.3.1 and Popper JS 
 -------------------- -->
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
@@ -70,13 +70,13 @@
 <body>
     
     <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4 title">Paraphernalia</h1>
-        <p class="lead mt-4 sub-title">Your personal belongings organised</p>
-        <p class="lead mt-4">
-            <a class="btn btn-lg" href="{{ url_for('show_contents_list') }}" role="button">Get started</a>
-        </p>
-    </div>
+        <div class="container">
+            <h1 class="display-4 title">Paraphernalia</h1>
+            <p class="lead mt-4 sub-title">Your personal belongings organised</p>
+            <p class="lead mt-4">
+                <a class="btn btn-primary btn-form-detail btn-lg" href="{{ url_for('show_contents_list') }}" role="button">Get started</a>
+            </p>
+        </div>
     </div>
     
     <div class="container">

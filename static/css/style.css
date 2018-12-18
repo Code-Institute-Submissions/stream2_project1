@@ -1,3 +1,4 @@
+/* Styling background image*/
 
 body {
         background-image: url('/static/images/bg-image.jpg');
@@ -7,10 +8,12 @@ body {
     }
 
 
-/*Styling to move main below fixed nav*/
+/* Styling to move "main" below fixed nav*/
+
 main {
     margin-top: 100px;
 }
+
 
 /* Styling fonts*/
 
@@ -23,7 +26,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 
-/*Styling colours*/
+/* Styling colours*/
 
 .header-navbar-col {
     background-color: #00A7E1;
@@ -68,22 +71,18 @@ h1, h2, h3, h4, h5, h6, p {
     color: #ae4804;
 }
 
-/*.room-list-title{*/
-/*    margin: 5px;*/
-/*}*/
-
 a:hover {
     color: white;
 }
 
 
-/*Styling to ensure fixed button doesn't interfere with form submit buttons*/
+/* Styling to ensure fixed button doesn't interfere with form submit buttons*/
 .fixed-bottom {
     left: auto;
 }
 
 
-/*Styling to remove underline from buttons on collapsible forms*/
+/* Styling to remove underline from buttons on collapsible forms*/
 .btn-link {
     color: #ae4804;
 }
@@ -98,20 +97,7 @@ a:hover {
 }
 
 
-/*Styling to remove margin top and bottom from <hr> in items loop*/
-/*.hr-list {*/
-/*    margin-top: 0rem;*/
-/*    margin-bottom: 0rem;*/
-/*}*/
-
-/*Styling for delete "yes" and "no" buttons*/
-/*.btn-form {*/
-/*    display: inline-block;*/
-/*}*/
-
-/*.btn-delete {*/
-/*    width: 80px;*/
-/*}*/
+/* Styling for form buttons*/
 
 .btn-form-detail {
     width: 80px;
@@ -120,6 +106,9 @@ a:hover {
     border-color: #3581B8;
 }
 
+
+/* Styling for modal buttons*/
+
 .btn-modal-detail {
     color: #fff;
     background-color: #3581B8;
@@ -127,21 +116,8 @@ a:hover {
 }
 
 
-/*Styling for image thumbnail on list and detail pages for different screen sizes*/
-/*@media (max-width: 768px) {*/
-/*    .img-thumbnail-mobile {*/
-/*        width: 110px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 576px) {*/
-/*    .img-thumbnail-mobile {*/
-/*        width: 100px;*/
-/*    }*/
-/*}*/
-
-
 /*Styling to remove certain elements from the printed page*/
+
 @media print {
     .no-print {
         display: none !important;
@@ -150,10 +126,10 @@ a:hover {
 
 
 /*Styling for detail and form pages*/
+
 .card-header {
     border-bottom: none;
 }
-
 
 .card-notes-col {
     background-color: #F7D488;
@@ -181,7 +157,9 @@ a:hover {
     font-size: 0.8rem;
 }
 
-/*Styling for print,edit, delete button*/
+
+/*Styling for print, edit, delete button*/
+
 .fa-ellipsis-v  {
     color: white;
     font-size: 30px;

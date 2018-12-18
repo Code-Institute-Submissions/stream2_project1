@@ -8,11 +8,12 @@
             <div class="card">
                 <div class="card-header card-header-col">
                     <div class="row">
+                        
                         <div class="col-10">
                             <h2>{{ item.item_title }}</h2>
                         </div>
-                        <div class="col-2">
                         
+                        <div class="col-2">
                             <div class="dropright text-right">
                                 <a class="no-print" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
                                 <div class="dropdown-menu" aria-labelledby="droprightMenuButton">
@@ -21,86 +22,112 @@
                                     <a class="dropdown-item" href="{{ url_for("delete_item", room=room, item_id=item._id) }}">DELETE</a>
                                 </div>
                             </div>
-                        
                         </div>    
+                    
                     </div>
                 </div>
+                
                 <div class="card-body card-body-col">
                     
                     <div class="card card-notes-col d-none d-md-block">
                         <div class="card-body">
+                            
                             <div class="row">
+                                
                                 <div class="col-12 d-none d-md-block">
                                     <p class="card-notes-title">For official use:</p>
                                 </div>
+                            
                             </div>
+                            
                             <div class="row">
+                                
                                 <div class="col-md-4 d-none d-md-block">
                                     <div class="card-notes-text"><i class="far fa-square"></i> Stolen</div>
                                     <div class="card-notes-text"><i class="far fa-square"></i> Damaged</div>
                                 </div>
+                                
                                 <div class="col-md-8 d-none d-md-block">
                                     <p class="card-notes-text">Comments/notes on condition:</p>
                                     <div class="text-box"></div>
                                 </div>
+                            
                             </div>
+                        
                         </div>
                     </div>
+                    
                     <br>
+                    
                     <div class="row">
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Make/Artist/Author:</p>
                             <p class="card-text item-card-text">{{ item.make }}</p>
                         </div>
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Model/Description/Title:</p>
                             <p class="card-text item-card-text">{{ item.model }}</p>
                         </div>
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Serial Number:</p>
                             <p class="card-text item-card-text">{{ item.serial_number }}</p>
                         </div>
+                        
                     </div>
+                    
                     <hr class="d-none d-md-block">
+                    
                     <div class="row">
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Date Purchased:</p>
                             <p class="card-text item-card-text">{{ item.date_purchased }}</p>
                         </div>
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Warranty:</p>
                             <p class="card-text item-card-text">{{ item.warranty }}</p>
                         </div>
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Where Purchased:</p>
                             <p class="card-text item-card-text">{{ item.where_purchased }}</p>
                         </div>
+                        
                     </div>
+                    
                     <hr class="d-none d-md-block">
+                    
                     <div class="row">
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Purchase Price (euro):</p>
                             <p class="card-text item-card-text">€{{ item.purchase_price }}</p>
                         </div>
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Estimated Value (euro):</p>
                             <p class="card-text item-card-text">€{{ item.estimated_value }}</p>
-                        </div>    
+                        </div> 
+                        
                     </div>
+                    
                     <hr class="d-none d-md-block">
+                    
                     <div class="row">
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Notes:</p>
                             <p class="card-text item-card-text">{{ item.notes }}</p>
                         </div>
-                        <!--<div class="col-12 col-md-3">-->
-                        <!--    <p class="card-title">Image of Item:</p>-->
-                        <!--    <p class="card-img"><img class="img-thumbnail" src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" /></p>-->
-                        <!--</div>-->
+                        
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Image of Item:</p>
                             <div class="btn card-img" data-toggle="modal" data-target="#image-item-Modal">
-                                <img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
+                                <img src="{{ item.image_item }}" onerror="this.src='{{ url_for('static', filename='images/noimage.png') }}'" alt="Image of Item" width="100%" height="auto" />
                             </div>
                             <p class="img-instr-text no-print">Click on the image to enlarge.</p>
                         </div>
@@ -109,7 +136,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <img src="{{ item.image_item }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Item" width="100%" height="auto" />
+                                        <img src="{{ item.image_item }}" onerror="this.src='{{ url_for('static', filename='images/noimage.png') }}'" alt="Image of Item" width="100%" height="auto" />
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-modal-detail" data-dismiss="modal">Close</button>
@@ -121,7 +148,7 @@
                         <div class="col-12 col-md-4">
                             <p class="card-title item-card-title">Image of Receipt:</p>
                             <div class="btn card-img" data-toggle="modal" data-target="#image-receipt-Modal">
-                                <img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" />
+                                <img src="{{ item.image_receipt }}" onerror="this.src='{{ url_for('static', filename='images/noimage.png') }}'" alt="Image of Receipt" width="100%" height="auto" />
                             </div>
                             <p class="img-instr-text no-print">Click on the image to enlarge.</p>
                         </div>
@@ -130,7 +157,7 @@
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
-                                        <img src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" />
+                                        <img src="{{ item.image_receipt }}" onerror="this.src='{{ url_for('static', filename='images/noimage.png') }}'" alt="Image of Receipt" width="100%" height="auto" />
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-modal-detail" data-dismiss="modal">Close</button>
@@ -139,13 +166,10 @@
                             </div>
                         </div>
                         
-                        <!--<div class="col-12 col-md-3">-->
-                        <!--    <p class="card-title">Image of Receipt:</p>-->
-                        <!--    <p class="card-img"><img class="img-thumbnail" src="{{ item.image_receipt }}" onerror="this.src='{{url_for('static', filename='images/noimage.png')}}'" alt="Image of Receipt" width="100%" height="auto" /></p>-->
-                        <!--</div>    -->
                     </div>
                     
                 </div>
+            
             </div>        
             
         </div>

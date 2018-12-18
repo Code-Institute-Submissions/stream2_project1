@@ -6,25 +6,27 @@
         <div class="col-10 offset-1">
             
             <div class="card">
+                
                 <div class="card-header card-header-col">
                     <h2>Edit Room</h2>
                 </div>
                 
                 <div class="card-body card-body-col">
-                    
                     <form class="needs-validation" method = "POST" novalidate>
                         <div class="form-group">
                             <label for="formGroupExampleInput">Room Name:</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="room_name" value="{{ room_room }}" required>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="room_name" value="{{ room }}" required>
                             <div class="invalid-feedback">
                                 You did not enter a room name.
                             </div>
                         </div>
+                        
                         <button type="submit" class="btn btn-primary btn-form-detail">Save</button>
                         <a class="btn btn-primary btn-form-detail" href="{{ url_for('show_contents_list') }}" role="button">Cancel</a>
-                    </form>
                     
+                    </form>
                 </div>
+            
             </div>    
             
         </div>    

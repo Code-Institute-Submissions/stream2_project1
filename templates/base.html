@@ -9,15 +9,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     
-<!-- Jquery v3.3.1 and Popper JS 
+    
+    <!-- Jquery v3.3.1 and Popper JS 
 -------------------- -->
     <script type="text/javascript" src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
 
     
-<!-- GIJGO JS & CSS For Datepicker 
+    <!-- GIJGO JS & CSS For Datepicker 
 -------------------- -->    
-    
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />    
     
@@ -26,15 +26,18 @@
 -------------------- -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}" type="text/css" />
     
+    
     <!-- Custom CSS
 -------------------- -->
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+    
     
     <!-- Font Awsome
 -------------------- -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">    
 
-  <!-- Google Fonts
+
+    <!-- Google Fonts
 -------------------- -->
     <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto" rel="stylesheet">    
     
@@ -42,18 +45,22 @@
 <body>
     
     <header>
+        
         <nav class="navbar fixed-top navbar-dark header-navbar-col">
           <a class="navbar-brand" href="{{ url_for('show_contents_list') }}">Paraphernalia</a>
         </nav>
+    
     </header>
     
     <main>
+        
         <div class="container">
             
             {% block content %}
             {% endblock content %}
     
         </div>
+    
     </main>
     
     <footer>
@@ -69,17 +76,9 @@
         </div>
         
     </footer>
-    
-    
-<!-- Print Page Button Function JS
--------------------- -->      
-    <script>
-    //     function printPage() {
-    //         window.print();
-    //     }
-    </script>
 
-<!-- Bootstrap Datepicker JS
+
+    <!-- Bootstrap Datepicker JS
 -------------------- -->    
     <script type="text/javascript">
         $('#datepicker').datepicker({
@@ -88,7 +87,7 @@
     </script>
     
     
-<!-- Bootstrap Form Validation JS
+    <!-- Bootstrap Form Validation JS
 -------------------- -->     
     <script>
         (function() {

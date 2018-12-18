@@ -19,6 +19,7 @@ def utility_processor():
         return s.replace(" ", "_").lower()
     return {"spaces_to_underscores": spaces_to_underscores}
 
+
 # Get Room Names Function
 def get_room_names():
     rooms = []
@@ -26,6 +27,7 @@ def get_room_names():
         if not room.startswith("system."):
             rooms.append(room)
     return rooms
+
 
 @app.route("/")
 def landing_page():
@@ -36,32 +38,16 @@ def landing_page():
 @app.route("/contents")
 def show_contents_list():
     rooms = get_room_names()
-    
     items_by_room = {}
     for room in rooms:
         items_by_room[room] = mongo.db[room].find()
-    
     return render_template("contents_list.html", items_by_room=items_by_room)
 
-    
-# Edit Contents List App Route
-# @app.route("/edit")
-# def edit_contents_list():
-#     rooms = get_room_names()
-    
-#     items_by_room = {}
-#     for room in rooms:
-#         items_by_room[room] = mongo.db[room].find()
-    
-#     return render_template("edit_contents_list.html", items_by_room=items_by_room)
-    
     
 # Show Room Detail App Route
 @app.route("/rooms/<room>")
 def show_room_detail(room):
-    
     items = mongo.db[room].find()
-    
     return render_template("room_detail.html", items=items, room=room)
 
 
@@ -71,11 +57,9 @@ def add_room():
     if request.method == "POST":
         room_name = request.form["room_name"]
         mongo.db.create_collection(room_name)
-        
         return redirect("/contents")
     else:
         rooms = get_room_names()
-    
         return render_template("add_room.html", rooms=rooms)
         
 
@@ -85,32 +69,27 @@ def edit_room(room):
     if request.method == "POST":
         room_name = request.form["room_name"]
         mongo.db[room].rename(room_name)
-        
         return redirect(url_for("show_room_detail", room=room_name))
     else:
         rooms = get_room_names()
-        
-        return render_template("edit_room.html", rooms=rooms, room_room=room)
+        return render_template("edit_room.html", rooms=rooms, room=room)
 
-    
+
+# Delete Room App Route    
 @app.route("/rooms/<room>/delete", methods=["GET", "POST"])
 def delete_room(room):
     if request.method == "POST":
         mongo.db.drop_collection(room)
-    
         return redirect(url_for("show_contents_list", room=room))
     else:
         items = mongo.db[room].find()
-
         return render_template("delete_room.html", items=items, room=room) 
 
 
 # Show Item Detail App Route
 @app.route("/rooms/<room>/items/<item_id>")
 def show_item_detail(room, item_id):
-    
     item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
-    
     return render_template("item_detail.html", room=room, item=item)
 
 
@@ -118,30 +97,25 @@ def show_item_detail(room, item_id):
 @app.route("/items/add", methods=["GET", "POST"])
 def add_item():
     if request.method == "POST":
-        
         form_values = request.form.to_dict()
-
+        
         if "image_item" in request.files:
             image_item = request.files["image_item"]
             image_item_string = base64.b64encode(image_item.read()).decode("utf-8")
             form_values["image_item_filename"] = image_item.filename
             form_values["image_item"] = "data:image/png;base64," + image_item_string
             
-        
         if "image_receipt" in request.files:
             image_receipt = request.files["image_receipt"]
             image_receipt_string = base64.b64encode(image_receipt.read()).decode("utf-8")
             form_values["image_receipt_filename"] = image_receipt.filename
             form_values["image_receipt"] = "data:image/png;base64," + image_receipt_string
             
-        
         room = form_values["room_name"]
         mongo.db[room].insert_one(form_values)
-        
         return redirect("/contents")
     else:
         rooms = get_room_names()
-        
         return render_template ("add_item.html", rooms=rooms)
         
 
@@ -180,21 +154,17 @@ def edit_item(room, item_id):
     else:
         item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
         rooms = get_room_names()
-        
         return render_template("edit_item.html", item=item, rooms=rooms, item_room=room)
 
-    
 
-
+# Delete Item App Route
 @app.route("/rooms/<room>/items/<item_id>/delete", methods=["GET", "POST"])
 def delete_item(room, item_id):
     if request.method == "POST":
         mongo.db[room].remove({"_id":ObjectId(item_id)})
-    
         return redirect(url_for("show_contents_list", room=room, item_id=item_id))
     else:
         item = mongo.db[room].find_one({"_id": ObjectId(item_id)})
-    
         return render_template("delete_item.html", room=room, item=item)
 
 
