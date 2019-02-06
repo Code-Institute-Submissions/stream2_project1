@@ -1,11 +1,19 @@
 /* Styling background image*/
 
-body {
-        background-image: url('/static/images/bg-image.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: auto;
+@media only screen and (orientation: landscape) {
+    body {
+            background-image: url('/static/images/bg-image.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: auto;
     }
+}
+    
+@media only screen and (orientation: portrait) {
+  body {
+    background-color: white;
+  }
+}
 
 
 /* Styling to move "main" below fixed nav*/
