@@ -18,7 +18,6 @@
                             <div class="dropright text-right">
                                 <a class="no-print" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
                                 <div class="dropdown-menu" aria-labelledby="droprightMenuButton">
-                                    <!--<a class="dropdown-item d-none d-md-block" href="javascript:window.print()">PRINT</a>-->
                                     <a class="dropdown-item" href="{{ url_for("edit_room", room=room) }}">EDIT</a>
                                     <a class="dropdown-item" href="{{ url_for('delete_room', room=room) }}">DELETE</a>
                                 </div>
