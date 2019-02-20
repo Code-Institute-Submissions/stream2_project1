@@ -85,12 +85,14 @@ a:hover {
 
 
 /* Styling to ensure fixed button doesn't interfere with form submit buttons*/
+
 .fixed-bottom {
     left: auto;
 }
 
 
 /* Styling to remove underline from buttons on collapsible forms*/
+
 .btn-link {
     color: #ae4804;
 }

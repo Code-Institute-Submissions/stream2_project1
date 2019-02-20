@@ -9,13 +9,15 @@ A live version of the site can be viewed [here](https://code-inst-contentlistman
 
 ## UX
 
-The web app default view is a collapsible navigation detailing rooms and respective items and the ability to add rooms and items through a fixed button in the bottom right and corner. However, when a user first accesses the app, they are shown a landing/splash page with branding and instruction on how to use the app. This page was a late addition, but I feel an important one from a UX point of view as it presents the only real branding present throughout the site and also a quick introduction to the utility of the app, which should enhance the first experience and encourage re-use. Branding is minimal throughout the rest of the app, restricted to a brand link in the nav-bar that returns the user to the default view. The remainder of the app is a collection of detail pages, for the rooms, for the items and respective creation and update pages. There is also a utility to print the detail pages should there be a need to, say if something went missing and the police or the users insurance company required a reference.
+The web app default view is a collapsible navigation detailing rooms and respective items and the ability to add rooms and items through a fixed button in the bottom right and corner. However, when a user first accesses the app, they are shown a landing/splash page with branding and instruction on how to use the app. This page was a late addition, but I feel an important one from a UX point of view, as it presents the only real branding present throughout the site and also a quick introduction to the utility of the app, which should enhance the first experience and encourage re-use. Branding is minimal throughout the rest of the app, restricted to a brand link in the nav-bar that returns the user to the default view. The remainder of the app is a collection of detail pages, for the rooms, for the items and respective creation and update pages. There is also a utility to print the detail pages should there be a need to, say if something went missing and the police or the users insurance company required a reference.
 
 The web app is fully responsive and content and layout has been accommodated for mobile, tablet and desktop.
 
 **No template was used in the building of this site.**
 
 Wireframes for this project can be viewed in the "wireframe" folder above. Wireframes were created using [Balsamiq](https://balsamiq.com/).
+
+**Point of interest:** A context processor was used to replace spaces with underscores as the collapsible navigation wouldn't work when id's including user created values where compared against data-target values - see contents_list.html for reference.
 
 User requirements/stories were met in the following way;
 - As a user, I want to understand how to use the app, so that I can begin adding content.
@@ -48,11 +50,11 @@ A user is able to print off a detail page for an item by visiting the respective
     - This project uses Font Awesome for styling.
 - [Coolors](https://coolors.co/)
     - This project uses Coolors for styling.
-- Python 3
-    - This project used Python 3 as the programming language.
-- PyMongo 3.7.2
+- Python
+    - This project used Python as the programming language.
+- PyMongo
     - This project used PyMongo, which is a Python distribution containing tools for working with MongoDB.
-- Flask 1.0.2
+- Flask
     - This project uses Flask as the Python web framework.
 - mLab
     - This project uses mLab as the cloud hosted MongoDB platform
@@ -69,14 +71,15 @@ A user is able to print off a detail page for an item by visiting the respective
 - Button to print item detail.
 
 ### Features left to implement
+- Down the line i would like to enable a email function to replace the print function when viewing the app on mobile. In this way, a user could email details of missing inventory to police or their insurance company.
 
 ## Testing
 
-Cross browser and multi-device testing was employed to test site responsiveness using [BrowserStack](https://www.browserstack.com).
+Cross browser and multi-device testing was employed to test site responsiveness using Google Chrome Developer Tools and [BrowserStack](https://www.browserstack.com).
 
 User testing was carried out to ensure;
 - All links and buttons worked as desired.
-
+- User created content was handeled correctly (adding, editing, deletion, display of etc.).
 
 ## Deployment
 
@@ -85,6 +88,10 @@ This site is hosted on Heroku.
 In order to run this site locally, in your terminal, type or paste; git clone https://github.com/al3xk3nny/stream2_project1.
 
 ## Credits
+
+### Tech
+
+- The item forms include a date picker that was sourced from [Gijgo](https://gijgo.com/datepicker/example/bootstrap-4). This one in particular was configured for use with Bootstrap 4.
 
 ### Media
 
